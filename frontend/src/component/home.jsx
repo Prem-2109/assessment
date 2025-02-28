@@ -14,7 +14,7 @@ const Home = () => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await axios.get("http://localhost:5000/users");
+                const response = await axios.get("https://assessment-iwgp.onrender.com/users");
                 setUsers(response.data);
             } catch (error) {
                 console.error("Error fetching users:", error);
@@ -75,9 +75,9 @@ const Home = () => {
         }
 
         try {
-            const response = await axios.post("http://localhost:5000/register", formData);
+            const response = await axios.post("https://assessment-iwgp.onrender.com/register", formData);
             dispatch(resetForm(response.data.message));
-            const updatedUsers = await axios.get("http://localhost:5000/users");
+            const updatedUsers = await axios.get("https://assessment-iwgp.onrender.com/users");
             setUsers(updatedUsers.data);
         } catch (error) {
             dispatch(setErrors({ general: error.response?.data?.message || "Something went wrong!" }));
